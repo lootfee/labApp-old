@@ -1,0 +1,17 @@
+#reg_company_form {
+	display: none;
+}
+
+#edit_company_profile_form {
+	display: none;
+}
+
+.company_name_nav {
+	width: 22em;
+    text-align: center;
+}
+
+/*.navbar-centerish {
+	width: 180%;
+    text-align: center;
+}

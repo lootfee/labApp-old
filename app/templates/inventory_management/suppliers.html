@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+{% include 'inventory_management/inventory_manager_nav.html' %}	
+    <h3 class="inventory_headers">Manage Suppliers</h3>
+	<hr>
+    <div class="row">
+		<div class="col-md-4 registerContainer">
+			<h4>Register Suppliers</h4>
+			<div class="col-md-12">
+				{% if form %}
+				{{ wtf.quick_form(form) }}
+				<br>
+				{% endif %}
+			</div>
+		</div>
+		<div class='col-md-8'>
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th>Supplier</th>
+				<th>Email</th>
+				<th>Contact</th>
+				<th>Address</th>
+			</tr>
+			{% if suppliers %}
+				{% for supplier in suppliers %}
+				<tr>
+					<td>{{ supplier.name }}</td>
+					<td>{{ supplier.email }}</td>
+					<td>{{ supplier.contact }}</td>
+					<td>{{ supplier.address }}</td>
+					<td><a href="{{ url_for('delete_supplier', id=supplier.id) }}">{{ ('Delete') }}</a></td>
+				</tr>
+				{% endfor %}
+			{% endif %}
+		</table>
+			
+		</div>
+    </div>
+	
+{% endblock %}

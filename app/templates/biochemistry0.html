@@ -1,0 +1,15 @@
+<div class="tabcontent" id="Biochemistry">
+	<div class="sidelink" role="navigation">
+		<ul class="nav nav-pills nav-stacked">
+			<li class="tablinks" onclick="openDept(event, 'lipid_profile')">Lipid Profile</li>
+			<li class="tablinks" onclick="openDept(event, 'creatinine_clearance')">Creatinine Clearance</li>
+			<li class="tablinks" onclick="openDept(event, 'egfr')">eGFR</li>
+			<li class="tablinks" onclick="openDept(event, 'urine_chemistry')">Urine Chemistry</li>
+			<li class="tablinks" onclick="openDept(event, 'urea_to_bun')">Urea to BUN</li>
+		</ul>
+	</div>
+</div>
+
+	{% include 'biochemistry_sections/lipid_profile.html' %}
+	{% include 'biochemistry_sections/creatinine_clearance.html' %}
+	{% include 'biochemistry_sections/egfr.html' %}

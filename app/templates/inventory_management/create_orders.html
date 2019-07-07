@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+{% include 'inventory_management/inventory_manager_nav.html' %}	
+    <h3 class="inventory_headers">Create Orders</h3>
+	<a class="create_orders" href="{{ url_for('orders')}}">Manage Orders</a>
+	<hr>
+    <div class="row">
+        <div class="col-md-6 registerContainer">
+            {% if form %}
+			{{ wtf.quick_form(form, form_type="inline") }}
+			<br>
+			{% endif %}
+			
+			<table class="table table-bordered table-hover">
+			<tr>
+				<th>Reference No</th>
+				<th>Product Code</th>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			{% if products %}
+				{% for p in products %}
+				<tr>
+					<td>{{ p.ref_number }}</td>
+					<td>{{ p.product_code }}</td>
+					<td>{{ p.name }}</td>
+					<td>{{ p.description }}</td>
+					<td><a href="{{ url_for('add_to_orders', id=p.id) }}">{{ ('Add') }}</a></td>
+				</tr>
+				{% endfor %}
+			{% endif %}
+		</table>
+			
+        </div>
+		<div class="col-md-6">
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th>Reference No</th>
+				<th>Product Code</th>
+				<th>Name</th>
+				<th>Price Each</th>
+				<th>Quantity</th>
+				<th>Total Price</th>
+			</tr>
+			{% if order_list %}
+				{% for order in order_list %}
+				<tr>
+					<td>{{ order.ref_no }}</td>
+					<td>{{ order.product_code }}</td>
+					<td>{{ order.name }}</td>
+					<td>{{ order.price }}</td>
+					<td><div contenteditable>{{ order.quantity }}</div></td>
+					<td id="total_price"></td>
+				</tr>
+				{% endfor %}
+			{% endif %}
+		</table>
+		
+		</div>
+    </div>
+{% endblock %}

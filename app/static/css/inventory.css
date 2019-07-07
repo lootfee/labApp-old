@@ -1,0 +1,31 @@
+.inventory_headers {
+	text-align: center;
+	margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#inventoryNav {
+	margin-bottom: 0;
+}
+
+.registerContainer {
+	border-right: #ddd solid 1px;
+}
+
+#submit_department {
+	margin-bottom: 15px;
+}
+
+.create_orders {
+	float: right;
+    margin-top: -30px;
+}
+
+.del-edit-btn {
+	width: 10px;
+}
+
+.admin-table {
+	text-align: center;
+}
+
